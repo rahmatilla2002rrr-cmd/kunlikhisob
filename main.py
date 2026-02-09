@@ -178,9 +178,9 @@ async def report_steps(message: Message):
 
 # ================== SCHEDULER ==================
 def setup_scheduler():
-    scheduler.add_job(sunday_check, "cron", day_of_week="*", hour=15, minute=41)
-    scheduler.add_job(remind_1930, "cron", day_of_week="*", hour=15, minute=42)
-    scheduler.add_job(choose_2000, "cron", day_of_week="*", hour=15, minute=43)
+    scheduler.add_job(sunday_check, "cron", day_of_week="*", hour=11, minute=34)
+    scheduler.add_job(remind_1930, "cron", day_of_week="*", hour=11, minute=35)
+    scheduler.add_job(choose_2000, "cron", day_of_week="*", hour=11, minute=36)
     scheduler.start()
 
 
