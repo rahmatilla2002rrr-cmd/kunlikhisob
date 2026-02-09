@@ -191,7 +191,7 @@ def setup_scheduler():
         trigger="cron",
         day_of_week="*",
         hour=12,
-        minute=05,
+        minute=8,
         id="test_cron",
         replace_existing=True
     )
