@@ -187,32 +187,12 @@ def setup_scheduler():
     print("SCHEDULER STARTED")
 
     scheduler.add_job(
-        sunday_check,
-        trigger="cron",
-        day_of_week="sun",
-        hour=14,
-        minute=0,
-        id="sunday_check",
-        replace_existing=True
-    )
-
-    scheduler.add_job(
         remind_1930,
         trigger="cron",
-        day_of_week="mon-sat",
-        hour=19,
-        minute=30,
-        id="remind_1930",
-        replace_existing=True
-    )
-
-    scheduler.add_job(
-        choose_2000,
-        trigger="cron",
-        day_of_week="mon-sat",
-        hour=20,
-        minute=0,
-        id="choose_2000",
+        day_of_week="*",
+        hour=11,
+        minute=41,
+        id="test_cron",
         replace_existing=True
     )
 
