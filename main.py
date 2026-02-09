@@ -19,7 +19,14 @@ TZ = pytz.timezone("Asia/Tashkent")
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
-scheduler = AsyncIOScheduler(timezone=TZ)
+scheduler = AsyncIOScheduler(
+    timezone=TZ,
+    job_defaults={
+        "misfire_grace_time": 300,   # 5 daqiqa
+        "coalesce": True,
+        "max_instances": 1
+    }
+)
 
 # user holatlari
 users_state = {}      # ishlayaptimi, qaysi bosqich
@@ -177,35 +184,39 @@ async def report_steps(message: Message):
 
 # ================== SCHEDULER ==================
 def setup_scheduler():
-    # Yakshanba – 14:00 so‘rov
+    print("SCHEDULER STARTED")
+
     scheduler.add_job(
         sunday_check,
-        "cron",
+        trigger="cron",
         day_of_week="sun",
         hour=14,
-        minute=0
+        minute=0,
+        id="sunday_check",
+        replace_existing=True
     )
 
-    # Dushanba–Shanba 19:30 eslatma
     scheduler.add_job(
         remind_1930,
-        "cron",
+        trigger="cron",
         day_of_week="mon-sat",
         hour=19,
-        minute=30
+        minute=30,
+        id="remind_1930",
+        replace_existing=True
     )
 
-    # Dushanba–Shanba 20:00 tanlov
     scheduler.add_job(
         choose_2000,
-        "cron",
+        trigger="cron",
         day_of_week="mon-sat",
         hour=20,
-        minute=0
+        minute=0,
+        id="choose_2000",
+        replace_existing=True
     )
 
     scheduler.start()
-
 
 # ================== MAIN ==================
 async def main():
