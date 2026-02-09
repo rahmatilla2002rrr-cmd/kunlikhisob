@@ -149,6 +149,7 @@ async def report_steps(message: Message):
 
 # ================= SCHEDULER SETUP =================
 def setup_scheduler():
+    print(">>> SETUP_SCHEDULER CALLED <<<")
     # Dushanba–Shanba
     scheduler.add_job(
         remind_1930_all, "cron", day_of_week="mon-sat", hour=19, minute=30,
