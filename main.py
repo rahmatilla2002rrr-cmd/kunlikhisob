@@ -1,6 +1,5 @@
 import os
 import asyncio
-from datetime import datetime, time, timedelta
 import pytz
 
 from aiogram import Bot, Dispatcher, F
@@ -177,15 +176,7 @@ async def report_steps(message: Message):
 
 
 # ================== SCHEDULER ==================
-def setup_scheduler():
-      run_time = now() + timedelta(minutes=1)
 
-        scheduler.add_job(
-        remind_1930,
-        trigger="date",
-        run_date=run_time
-    )
-    scheduler.start()
 
 
 # ================== MAIN ==================
