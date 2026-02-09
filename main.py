@@ -53,7 +53,7 @@ def report_template(data):
 # ================== START ==================
 @dp.message(Command("start"))
 async def start(message: Message):
-    await message.answer("✅ Kunlikhisob bot ishlayapti.")
+    await message.answer("✅ Kunlik hisob bot ishlayapti. Habarlar faqat belgilangan vaqtda yuboriladi.")
 
 
 # ================== YAKSHANBA SO‘ROV ==================
@@ -178,9 +178,9 @@ async def report_steps(message: Message):
 
 # ================== SCHEDULER ==================
 def setup_scheduler():
-    scheduler.add_job(sunday_check, "cron", day_of_week="sun", hour=14, minute=0)
-    scheduler.add_job(remind_1930, "cron", day_of_week="mon-sat", hour=19, minute=30)
-    scheduler.add_job(choose_2000, "cron", day_of_week="mon-sat", hour=20, minute=0)
+    scheduler.add_job(sunday_check, "cron", day_of_week="*", hour=15, minute=41)
+    scheduler.add_job(remind_1930, "cron", day_of_week="*", hour=15, minute=42)
+    scheduler.add_job(choose_2000, "cron", day_of_week="*", hour=15, minute=43)
     scheduler.start()
 
 
