@@ -59,6 +59,20 @@ def report_template(data):
 # ================== START ==================
 @dp.message(Command("start"))
 async def start(message: Message):
+    @dp.message(Command("test1930"))
+async def test_1930(message: Message):
+    await remind_1930()
+    await message.answer("✅ 19:30 logikasi test qilindi")
+
+@dp.message(Command("test2000"))
+async def test_2000(message: Message):
+    await choose_2000()
+    await message.answer("✅ 20:00 logikasi test qilindi")
+
+@dp.message(Command("testsunday"))
+async def test_sunday(message: Message):
+    await sunday_check()
+    await message.answer("✅ Yakshanba logikasi test qilindi")
     await message.answer("✅ Kunlik hisob bot ishlayapti. Habarlar faqat belgilangan vaqtda yuboriladi.")
 
 
