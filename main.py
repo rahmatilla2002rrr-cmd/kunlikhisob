@@ -47,6 +47,14 @@ def build_report(d: dict) -> str:
         f"🎓 Sinov darsi: {d['sinov']}\n"
         f"🤔 O‘ylab ko‘radi: {d['oylab']}\n"
         f"📵 Ko‘tarmagan: {d['kotarmagan']}\n"
+         "🔹 2-BLOK (QAYTA ALOQA)\n"
+        f"🔁 Qayta aloqaga chiqilgan: {d['qa_chiqilgan']}\n"
+        f"📞 Gaplashilgan: {d['qa_gaplashilgan']}\n"
+        f"✅ Sifatli: {d['qa_sifatli']}\n"
+        f"❌ Sifatsiz: {d['qa_sifatsiz']}\n"
+        f"🎓 Sinov darsi: {d['qa_sinov']}\n"
+        f"🤔 O‘ylab ko‘radi: {d['qa_oylab']}\n"
+        f"📵 Ko‘tarmagan: {d['qa_kotarmagan']}\n"
     )
 
 
@@ -99,6 +107,16 @@ async def handle_report(message: Message):
         ("sinov", "🤔 O‘ylab ko‘radi sonini kiriting:"),
         ("oylab", "📵 Ko‘tarmagan sonini kiriting:"),
         ("kotarmagan", None),
+         # 2-BLOK
+    ("kotarmagan", "🔁 Qayta aloqaga chiqilgan sonini kiriting:"),
+    ("qa_chiqilgan", "📞 Qayta aloqada gaplashilgan sonini kiriting:"),
+    ("qa_gaplashilgan", "✅ Qayta aloqada sifatli sonini kiriting:"),
+    ("qa_sifatli", "❌ Qayta aloqada sifatsiz sonini kiriting:"),
+    ("qa_sifatsiz", "🎓 Qayta aloqada sinov darsi sonini kiriting:"),
+    ("qa_sinov", "🤔 Qayta aloqada o‘ylab ko‘radi sonini kiriting:"),
+    ("qa_oylab", "📵 Qayta aloqada ko‘tarmagan sonini kiriting:"),
+        # YAKUN
+    ("qa_kotarmagan", None),
     ]
 
     d[step] = value
