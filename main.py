@@ -182,8 +182,8 @@ def setup_scheduler():
     remind_1930,
     "cron",
     day_of_week="*",
-    hour=16,
-    minute=12
+    hour=11,
+    minute=40
 )
     scheduler.start()
 
