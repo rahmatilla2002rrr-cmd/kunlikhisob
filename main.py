@@ -9,7 +9,7 @@ from aiogram.filters import Command
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-
+TEST_MODE = True  # hozir test uchun
 
 # ================= TIMEZONE =================
 TZ = pytz.timezone("Asia/Tashkent")
@@ -36,7 +36,8 @@ scheduler = AsyncIOScheduler(
 # ================= STATE =================
 user_step = {}   # user_id -> step
 report_data = {} # user_id -> dict
-
+submitted_users = set()
+late_users = set()
 
 # ================= HELPERS =================
 def report_text(d):
@@ -140,6 +141,7 @@ async def report_steps(message: Message):
                 await message.answer(next_q)
             else:
                 user_step.pop(uid)
+                submitted_users.add(uid)
                 await bot.send_message(CHANNEL_ID, report_text(d))
                 await message.answer("✅ Hisobot kanalga yuborildi")
             return
