@@ -177,12 +177,31 @@ async def report_steps(message: Message):
 
 # ================== SCHEDULER ==================
 def setup_scheduler():
-    run_time = now() + timedelta(minutes=1)
+    # Yakshanba – 14:00 so‘rov
+    scheduler.add_job(
+        sunday_check,
+        "cron",
+        day_of_week="sun",
+        hour=14,
+        minute=0
+    )
 
+    # Dushanba–Shanba 19:30 eslatma
     scheduler.add_job(
         remind_1930,
-        trigger="date",
-        run_date=run_time
+        "cron",
+        day_of_week="mon-sat",
+        hour=19,
+        minute=30
+    )
+
+    # Dushanba–Shanba 20:00 tanlov
+    scheduler.add_job(
+        choose_2000,
+        "cron",
+        day_of_week="mon-sat",
+        hour=20,
+        minute=0
     )
 
     scheduler.start()
