@@ -89,7 +89,7 @@ async def remind_2100_all():
     kb.button(text="📝 Hisobot topshirish", callback_data="report_start")
     await bot.send_message(
         chat_id=CHANNEL_ID,
-        text="⏰ 21:00: Oxirgi imkoniyat — hisobot topshiring",
+        text="⏰ 21:00: Oxirgi imkoniyat — hisobot topshiring!",
         reply_markup=kb.as_markup()
     )
 
