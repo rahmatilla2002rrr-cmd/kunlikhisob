@@ -191,13 +191,12 @@ def setup_scheduler():
         trigger="cron",
         day_of_week="*",
         hour=12,
-        minute=01,
+        minute=3,
         id="test_cron",
         replace_existing=True
     )
 
     scheduler.start()
-
 # ================== MAIN ==================
 async def main():
     setup_scheduler()
