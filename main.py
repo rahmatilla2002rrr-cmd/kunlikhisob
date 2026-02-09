@@ -190,8 +190,8 @@ def setup_scheduler():
         remind_1930,
         trigger="cron",
         day_of_week="*",
-        hour=11,
-        minute=41,
+        hour=12,
+        minute=01,
         id="test_cron",
         replace_existing=True
     )
