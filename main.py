@@ -59,8 +59,8 @@ async def remind_1930():
 # ================== TEST COMMAND (CRON O‘RNIGA) ==================
 @dp.message(Command("test1930"))
 async def test_1930(message: Message):
-    await remind_1930()
-    await message.answer("✅ 19:30 logikasi qo‘lda test qilindi")
+    await remind_1930(message.from_user.id)
+    await message.answer("✅ 19:30 logikasi test qilindi")
 
 
 # ================== SCHEDULER SETUP ==================
