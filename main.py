@@ -148,13 +148,20 @@ async def handle_report(message: Message):
 
 # ================= SCHEDULER =================
 def setup_scheduler():
-    # TEST: 10 soniyadan keyin avtomatik boshlaydi
+    scheduler.remove_all_jobs()
+
+    # DUSHANBA–SHANBA 20:00 — HISOBOT BOSHLASH
     scheduler.add_job(
         start_report,
-        "date",
-        run_date=now() + timedelta(seconds=10),
-        args=[OPERATOR_ID]
+        "cron",
+        day_of_week="mon-sat",
+        hour=20,
+        minute=0,
+        args=[OPERATOR_ID],
+        id="start_report_2000",
+        replace_existing=True
     )
+
     scheduler.start()
 
 
