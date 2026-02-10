@@ -155,8 +155,8 @@ def setup_scheduler():
         start_report,
         "cron",
         day_of_week="mon-sat",
-        hour=20,
-        minute=0,
+        hour=13,
+        minute=24,
         args=[OPERATOR_ID],
         id="start_report_2000",
         replace_existing=True
