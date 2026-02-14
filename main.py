@@ -20,6 +20,7 @@ def now():
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
 OPERATOR_ID = int(os.getenv("OPERATOR_ID"))
+OPERATOR_ID2 = int(os.getenv("OPERATOR_ID2"))
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
