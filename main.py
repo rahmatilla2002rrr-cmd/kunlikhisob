@@ -20,7 +20,6 @@ def now():
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
 OPERATOR_ID = int(os.getenv("OPERATOR_ID"))
-OPERATOR_ID2 = int(os.getenv("OPERATOR_ID2"))
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
@@ -157,9 +156,8 @@ def setup_scheduler():
         "cron",
         day_of_week="mon-sat",
         hour=18,
-        minute=42,
+        minute=44,
         args=[OPERATOR_ID],
-        args=[OPERATOR_ID2],
         id="start_report_2000",
         replace_existing=True
     )
